@@ -1,12 +1,26 @@
-let menu=document.querySelector('#menu-icon');
-let navbar=document.querySelector('.navbar');
+let string="";
+let buttons=document.querySelectorAll('.button');
+// query selector all jin jin ki class button hai vo , vo selec
+// select kr legga 
 
 
-menu.onclick =()=> {
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+// in button se ek array bnao  
+// for each matlab sarre button 
+
+Array.from(buttons).forEach((button)=>{
+   button.addEventListener('click', (e)=>{
+    if(e.target.innerHTML== '='){
+        string=eval(string);
+        document.querySelector('input').value=string;
+    }
+    else if (e.target.innerHTML=='C'){
+        string="";
+        document.querySelector('input').value=string;
+    }
+    else{
+    console.log(e.target)
+    string = string+e.target.innerHTML;
+    document.querySelector('input').value=string;
 }
-window.onscroll=()=>{
-    menu.classList.remove('bx-x');
-    navbar.classList.remove('active');
-}
+}) 
+})
